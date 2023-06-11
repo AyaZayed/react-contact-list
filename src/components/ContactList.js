@@ -6,7 +6,7 @@ export default function ContactList() {
     const [contacts, setContacts] = useState([])
 
     useEffect(() => {
-        fetch('https://randomuser.me/api/?results=10')
+        fetch('https://randomuser.me/api/?results=5')
             .then(response => response.json())
             .then(data => {
                 setContacts(data.results)
@@ -17,7 +17,7 @@ export default function ContactList() {
         <div className='contact-list'>
             {contacts.map(contact => {
                 return (
-                    <ContactCard contact={contact} />
+                    <ContactCard key={contact.id} contact={contact} />
                 )
             })}
         </div>
